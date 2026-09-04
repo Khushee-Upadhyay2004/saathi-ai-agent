@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  html, body {
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  p, span, div {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Minimum 44px Touch Target for Mobile Accessibility (WCAG 2.1 AAA) */
+  button, a, input, select {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}
+
+/* Custom Accessibility High Contrast Modes */
+body.high-contrast-yellow {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+}
+
+body.high-contrast-yellow * {
+  border-color: #ffff00 !important;
+}
+
+body.high-contrast-yellow button,
+body.high-contrast-yellow a,
+body.high-contrast-yellow .card-accessible {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 3px solid #ffff00 !important;
+}
+
+body.high-contrast-yellow button:hover,
+body.high-contrast-yellow button:focus {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+}
+
+body.high-contrast-white {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.high-contrast-white * {
+  border-color: #ffffff !important;
+}
+
+body.high-contrast-white button,
+body.high-contrast-white a,
+body.high-contrast-white .card-accessible {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+}
+
+body.high-contrast-white button:hover,
+body.high-contrast-white button:focus {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Font Scaling */
+body.text-scale-lg {
+  font-size: 1.125rem;
+}
+
+body.text-scale-xl {
+  font-size: 1.25rem;
+}
+
+/* Enhanced Focus Outline Ring for Screen Reader & Keyboard Navigation */
+*:focus-visible {
+  outline: 4px solid #06b6d4 !important;
+  outline-offset: 4px !important;
+  border-radius: 8px !important;
+}
+
+/* Custom Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4), 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.7), 0 0 50px rgba(6, 182, 212, 0.4);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Glassmorphism panel styling */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-interactive {
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(6, 182, 212, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.25);
+}
